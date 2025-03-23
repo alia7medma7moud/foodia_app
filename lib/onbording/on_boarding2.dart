@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodia_app/onbording/screens/screen1.dart';
-import 'package:foodia_app/onbording/screens/screen2.dart';
-import 'package:foodia_app/onbording/screens/screen3.dart';
+import 'package:foodia_app/onbording/onbording%20screens/screem4.dart';
+import 'package:foodia_app/onbording/onbording%20screens/screen1.dart';
+import 'package:foodia_app/onbording/onbording%20screens/screen2.dart';
+import 'package:foodia_app/onbording/onbording%20screens/screen3.dart';
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +24,13 @@ class _OnBoarding2State extends State<OnBoarding2> {
         children: [
           PageView(
             controller: pageController,
-            children: [Screen1(), Screen2(), Screen3()],
+            children: [
+               Screen1(),
+               Screen2(), 
+               Screen3() ,
+                Screen4(),
+
+                ],
           ),
 
           Container(
@@ -31,12 +38,12 @@ class _OnBoarding2State extends State<OnBoarding2> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SmoothPageIndicator(controller: pageController, count: 3),
+                SmoothPageIndicator(controller: pageController, count: 4),
                 SizedBox(width: 70),
                 GestureDetector(
                   child: IconButton(
                     onPressed: () {
-                      GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
+                      GoRouter.of(context).pushNamed(AppRoutes.firstpage);
                     },
                     icon: Icon(
                       Icons.chevron_right,

@@ -9,4 +9,5 @@ class AppAssets {
   static final String onboardingscreen1 = "assets/images/onbordingscreen1.png";
   static final String onboardingscreen2 = "assets/images/onbordingscreen2.png";
   static final String onboardingscreen3 = "assets/images/onbordingscreen3.png";
+  static final String onboardingscreen4 = "assets/images/ondordingscreen4.png";
 }

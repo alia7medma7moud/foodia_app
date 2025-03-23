@@ -6,6 +6,7 @@ import 'package:foodia_app/auth/screens/sucess_pass.dart';
 import 'package:foodia_app/auth/screens/verify_otp_page.dart';
 import 'package:foodia_app/onbording/on_boarding1.dart';
 import 'package:foodia_app/onbording/on_boarding2.dart';
+import 'package:foodia_app/pages/first_page.dart';
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -54,6 +55,12 @@ class RouterGeneration {
         path: AppRoutes.onbordingscreen2,
         name: AppRoutes.onbordingscreen2 ,
        builder: (context, State) => OnBoarding2(),
+        
+        ) ,
+      GoRoute(
+        path: AppRoutes.firstpage,
+        name: AppRoutes.firstpage ,
+       builder: (context, State) => Firstpage(),
         
         )
 
