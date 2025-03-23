@@ -3,8 +3,6 @@ import 'package:foodia_app/onbording/screens/screen1.dart';
 import 'package:foodia_app/onbording/screens/screen2.dart';
 import 'package:foodia_app/onbording/screens/screen3.dart';
 import 'package:foodia_app/routing/app_routes.dart';
-import 'package:foodia_app/styling/app_fonts.dart';
-import 'package:foodia_app/styling/app_styling.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
