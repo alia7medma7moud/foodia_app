@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodia_app/routing/app_routes.dart';
 
 import 'package:foodia_app/styling/app_assets.dart';
 
 import 'package:foodia_app/styling/app_fonts.dart';
-import 'package:go_router/go_router.dart';
 
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
@@ -17,13 +15,6 @@ class Screen1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          
-            // TextButton(
-            //   onPressed: () {
-            //     GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
-            //   },
-            //   child: 
-            // ),
             Image.asset(AppAssets.onboardingscreen1),
             // SizedBox(height: 20),
             Text(
