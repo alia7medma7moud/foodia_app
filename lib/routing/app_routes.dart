@@ -6,5 +6,5 @@ class AppRoutes {
   static const String newpassword = "/new_pass";
   static const String sucesspassword = "/sucess_pass";
   static const String verifyotp = "/verify_otp_page";
-  // static const String onbordingscreen1 = "/onbording";
+  static const String onbordingscreen2 = "/on_bording2";
 }

@@ -4,6 +4,8 @@ import 'package:foodia_app/auth/screens/new_pass.dart';
 import 'package:foodia_app/auth/screens/register_screen.dart';
 import 'package:foodia_app/auth/screens/sucess_pass.dart';
 import 'package:foodia_app/auth/screens/verify_otp_page.dart';
+import 'package:foodia_app/onbording/on_boarding1.dart';
+import 'package:foodia_app/onbording/on_boarding2.dart';
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,11 +13,11 @@ class RouterGeneration {
   static GoRouter goRouter = GoRouter(
     initialLocation: AppRoutes.onBordingScreen,
     routes: [
-      // GoRoute(
-      //   path: AppRoutes.onBordingScreen,
-      //   name: AppRoutes.onBordingScreen,
-      //   builder: (context, State) => const OnBoarding1(),
-      // ),
+      GoRoute(
+        path: AppRoutes.onBordingScreen,
+        name: AppRoutes.onBordingScreen,
+        builder: (context, State) => const OnBoarding1(),
+      ),
       GoRoute(
         path: AppRoutes.signinScreen,
         name: AppRoutes.signinScreen,
@@ -47,12 +49,13 @@ class RouterGeneration {
         name: AppRoutes.verifyotp,
         builder: (context, State) => Verifyotp(),
       ),
-      // GoRoute(
-      //   path: AppRoutes.onbordingscreen1,
-      //   name: AppRoutes.onbordingscreen1 ,
-      //  builder: (context, State) => OnboardingScreen(),
+
+      GoRoute(
+        path: AppRoutes.onbordingscreen2,
+        name: AppRoutes.onbordingscreen2 ,
+       builder: (context, State) => OnBoarding2(),
         
-      //   )
+        )
 
     ],
   );
