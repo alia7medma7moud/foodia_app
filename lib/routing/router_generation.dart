@@ -1,3 +1,4 @@
+import 'package:foodia_app/auth/screens/chef_screen.dart';
 import 'package:foodia_app/auth/screens/forget_password.dart';
 import 'package:foodia_app/auth/screens/log_in.dart';
 import 'package:foodia_app/auth/screens/new_pass.dart';
@@ -61,6 +62,12 @@ class RouterGeneration {
         path: AppRoutes.firstpage,
         name: AppRoutes.firstpage ,
        builder: (context, State) => Firstpage(),
+        
+        ),
+              GoRoute(
+        path: AppRoutes.chefscreen,
+        name: AppRoutes.chefscreen ,
+       builder: (context, State) => Chefscreen(),
         
         )
 

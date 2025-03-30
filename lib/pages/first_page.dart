@@ -56,18 +56,25 @@ class _FirstpageState extends State<Firstpage> {
                     onpress: () {
                       GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
                     },
-                    buttontext: " Login ",
+                    buttontext: "تسجيل الدخول ",
                     fontsize: 25,
+                  ),
+                  SizedBox(height: 20),
+                  Primarybutton(
+                    onpress: () {
+                      GoRouter.of(context).pushNamed(AppRoutes.chefscreen);
+                    },
+                    buttontext: "انشاء حساب شيف",
+                    fontsize: 20,
                   ),
                   SizedBox(height: 20),
                   Primarybutton(
                     onpress: () {
                       GoRouter.of(context).pushNamed(AppRoutes.signinScreen);
                     },
-                    buttontext: " Register ",
-                    fontsize: 25,
+                    buttontext: "انشاء حساب عميل",
+                    fontsize: 20,
                   ),
-                  
                 ],
               ),
             ),

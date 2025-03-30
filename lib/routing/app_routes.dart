@@ -8,4 +8,5 @@ class AppRoutes {
   static const String verifyotp = "/verify_otp_page";
   static const String onbordingscreen2 = "/on_bording2";
   static const String firstpage = "/first_page";
+  static const String chefscreen = "/chef_screen";
 }
