@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:foodia_app/styling/app_assets.dart';
 import 'package:foodia_app/styling/app_colors.dart';
+import 'package:foodia_app/styling/app_fonts.dart';
 import 'package:foodia_app/styling/app_styling.dart';
 import 'package:foodia_app/witgets/primary_button.dart';
 import 'package:foodia_app/witgets/wiget_back.dart';
@@ -52,19 +53,23 @@ class _VerifyotpState extends State<Verifyotp> {
                   children: <Widget>[
                     // ==============Logo===============
                     SizedBox(
-                      width: 250,
-                      height: 250,
+                      width: 230,
+                      height: 230,
                       child: Image.asset(
                         AppAssets.otpimage,
                         fit: BoxFit.contain,
                       ),
                     ),
                     //=================Text=======================
-                    Text(
-                      "OTP Verification",
-                      style: AppStyling.primarytextstyle,
+                    Text("ادخل كود التحقق", style: AppStyling.primarytextstyle),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        "لقد تم ارسال كود مكون من 4 ارقام علي رقم الهاتف الخاص بك",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 10),
                     // ======================= pin code ===========
                     Padding(
                       padding: const EdgeInsets.only(right: 15, left: 15),
@@ -90,12 +95,13 @@ class _VerifyotpState extends State<Verifyotp> {
                       ),
                     ),
                     //========================Password===============
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Text(
-                      "Do not send OTP  ?  Send OTP",
-                      style: TextStyle(color: Colors.grey, fontSize: 15),
+                      "لم يصلني كود تحقق؟ ارسل مره أخري",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
-                    SizedBox(height: 100),
+
+                    SizedBox(height: 50),
                     //======================== Verifyotp Button=================
                     Primarybutton(
                       onpress: () {
@@ -105,8 +111,8 @@ class _VerifyotpState extends State<Verifyotp> {
                         //   print(password.text);
                         // }
                       },
-                      
-                      buttontext: "Submit",
+
+                      buttontext: "تاكيد",
                       fontsize: 23,
                     ),
                     SizedBox(height: 20),

@@ -9,7 +9,6 @@ import 'package:foodia_app/witgets/primary_button.dart';
 import 'package:foodia_app/witgets/wiget_back.dart';
 import 'package:go_router/go_router.dart';
 
-
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
 
@@ -36,7 +35,10 @@ class ForgetPassword extends StatelessWidget {
                   children: <Widget>[
                     SizedBox(height: 30),
                     //=================Text=====================================
-                    Text("Forget Password", style: AppStyling.primarytextstyle),
+                    Text(
+                      "إعادة تعيين كلمة السر",
+                      style: AppStyling.primarytextstyle,
+                    ),
                     // ==============Logo=======================================
                     SizedBox(
                       width: 270,
@@ -47,12 +49,13 @@ class ForgetPassword extends StatelessWidget {
                       ),
                     ),
                     //=================Text=====================================
+                    SizedBox(height: 10),
                     Text(
-                      "Enter Your Phone Number ",
+                      "ادخل رقم الهاتف المرتبط بحسابك       ",
                       style: TextStyle(
                         fontFamily: AppFonts.mainfontsname,
-                        color: Colors.blueGrey,
-                        fontSize: 25,
+                        color: Colors.black,
+                        fontSize: 20,
                       ),
                     ),
                     SizedBox(height: 25),
@@ -65,7 +68,7 @@ class ForgetPassword extends StatelessWidget {
                         }
                         return null;
                       },
-                      hintText: "Phone",
+                      hintText: "رقم الهاتف",
                       sufixicon: Icon(Icons.phone, color: Colors.blueGrey),
                     ),
                     SizedBox(height: 20),
@@ -75,7 +78,7 @@ class ForgetPassword extends StatelessWidget {
                         GoRouter.of(context).pushNamed(AppRoutes.verifyotp);
                       },
                       // onpress: () => _registerUser(context),
-                      buttontext: "Send Code ",
+                      buttontext: "ارسال الرمز  ",
                       fontsize: 23,
                     ),
                     SizedBox(height: 20),
