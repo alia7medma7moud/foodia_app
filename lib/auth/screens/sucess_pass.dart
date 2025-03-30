@@ -12,8 +12,9 @@ class SucessPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            // ======================= click back =============
+      // ======================= click back =============
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();

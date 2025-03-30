@@ -39,8 +39,9 @@ class _RegisterpageState extends State<Registerpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ======================= click back ============= 
+      // ======================= click back =============
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();
@@ -58,7 +59,6 @@ class _RegisterpageState extends State<Registerpage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-
                     // ==============Logo===============
                     SizedBox(
                       width: 186,
@@ -70,7 +70,7 @@ class _RegisterpageState extends State<Registerpage> {
                     ),
                     //=================Text=======================
                     Text("Regiser Now", style: AppStyling.primarytextstyle),
-                    
+
                     //========================username===============
                     CustomTextField(
                       //================username controller =============
@@ -83,7 +83,6 @@ class _RegisterpageState extends State<Registerpage> {
                       },
                       hintText: "Username",
                       sufixicon: Icon(Icons.person),
-                      
                     ),
                     //======================== phone ===================
                     CustomTextField(
@@ -91,15 +90,14 @@ class _RegisterpageState extends State<Registerpage> {
                       controller: phonecontroller,
                       validator: (value) {
                         if (value!.isEmpty) return "Enter Your Phone";
-    
-                        if (value.length > 11) return "Please Enter Correct phone";
+
+                        if (value.length > 11)
+                          return "Please Enter Correct phone";
                         return null;
-                        
                       },
                       hintText: "Phone",
                       obscureText: false,
                       sufixicon: Icon(Icons.phone),
-                     
                     ),
                     //========================Email====================
                     CustomTextField(
@@ -113,7 +111,6 @@ class _RegisterpageState extends State<Registerpage> {
                       hintText: "Email",
                       iconfeild: Icons.email,
                       sufixicon: Icon(Icons.email),
-                     
                     ),
                     //========================Password===============
                     CustomTextField(
@@ -141,7 +138,6 @@ class _RegisterpageState extends State<Registerpage> {
                         ),
                       ),
                       hintText: "Password",
-                      
                     ),
                     //========================Confirm Password===============
                     CustomTextField(
@@ -169,7 +165,6 @@ class _RegisterpageState extends State<Registerpage> {
                         ),
                       ),
                       hintText: "Confirm Password",
-                      
                     ),
                     //========================Sign UP Button=================
                     Primarybutton(
@@ -180,7 +175,7 @@ class _RegisterpageState extends State<Registerpage> {
                         }
                         GoRouter.of(context).pushNamed(AppRoutes.verifyotp);
                       },
-                     
+
                       buttontext: "Register Now",
                       fontsize: 23,
                     ),

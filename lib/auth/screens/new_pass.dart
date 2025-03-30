@@ -26,6 +26,7 @@ class _NewPassState extends State<NewPass> {
     return Scaffold(
       // ======================= click back =============
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();
@@ -76,7 +77,6 @@ class _NewPassState extends State<NewPass> {
                           ),
                         ),
                         hintText: "Password",
-                        
                       ),
                       SizedBox(height: 15),
                       //================== confirm password ====================
@@ -95,8 +95,6 @@ class _NewPassState extends State<NewPass> {
                           ),
                         ),
                         hintText: "Confirm Password",
-
-                        
                       ),
                       SizedBox(height: 20),
                       //======================== Login Button ==================
@@ -106,7 +104,7 @@ class _NewPassState extends State<NewPass> {
                             context,
                           ).pushNamed(AppRoutes.sucesspassword);
                         },
-                        
+
                         buttontext: "OK",
                         fontsize: 28,
                       ),

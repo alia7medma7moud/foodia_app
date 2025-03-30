@@ -24,6 +24,7 @@ class _FirstpageState extends State<Firstpage> {
     return Scaffold(
       // ======================= click back ===========================
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();

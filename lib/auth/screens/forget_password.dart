@@ -17,6 +17,7 @@ class ForgetPassword extends StatelessWidget {
     return Scaffold(
       // ======================= click back ===========================
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();

@@ -39,6 +39,7 @@ class _LogInState extends State<LogIn> {
     return Scaffold(
       // ======================= click back ===========================
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: WigetBack(
           onpress: () {
             GoRouter.of(context).pop();
