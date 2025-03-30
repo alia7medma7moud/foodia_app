@@ -4,6 +4,7 @@ import 'package:foodia_app/onbording/onbording%20screens/screen1.dart';
 import 'package:foodia_app/onbording/onbording%20screens/screen2.dart';
 import 'package:foodia_app/onbording/onbording%20screens/screen3.dart';
 import 'package:foodia_app/routing/app_routes.dart';
+import 'package:foodia_app/styling/app_colors.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -24,13 +25,7 @@ class _OnBoarding2State extends State<OnBoarding2> {
         children: [
           PageView(
             controller: pageController,
-            children: [
-               Screen1(),
-               Screen2(), 
-               Screen3() ,
-                Screen4(),
-
-                ],
+            children: [Screen1(), Screen2(), Screen3(), Screen4()],
           ),
 
           Container(
@@ -41,13 +36,19 @@ class _OnBoarding2State extends State<OnBoarding2> {
                 SmoothPageIndicator(controller: pageController, count: 4),
                 SizedBox(width: 70),
                 GestureDetector(
-                  child: IconButton(
-                    onPressed: () {
-                      GoRouter.of(context).pushNamed(AppRoutes.firstpage);
-                    },
-                    icon: Icon(
-                      Icons.chevron_right,
-                      size: 50,
+                  child: Container(
+                    height: 45,
+                    width: 45,
+                    decoration: BoxDecoration(
+                      color: AppColors.primarycolor,
+                      border: Border.all(color: Colors.orange),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        GoRouter.of(context).pushNamed(AppRoutes.firstpage);
+                      },
+                      icon: Center(child: Icon(Icons.chevron_right, size: 35)),
                       color: Colors.white,
                     ),
                   ),
