@@ -91,8 +91,9 @@ class _RegisterpageState extends State<Registerpage> {
                       validator: (value) {
                         if (value!.isEmpty) return "Enter Your Phone";
 
-                        if (value.length > 11)
+                        if (value.length > 11) {
                           return "Please Enter Correct phone";
+                        }
                         return null;
                       },
                       hintText: "Phone",

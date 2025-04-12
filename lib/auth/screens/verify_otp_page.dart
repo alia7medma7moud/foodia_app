@@ -23,7 +23,7 @@ class _VerifyotpState extends State<Verifyotp> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     pincodecontroller = TextEditingController();
   }
@@ -87,6 +87,7 @@ class _VerifyotpState extends State<Verifyotp> {
                           inactiveColor: Colors.grey,
                         ),
                         onChanged: (value) {
+                          // ignore: avoid_print
                           print("pin value : $value");
                         },
                         // onCompleted: (value) {

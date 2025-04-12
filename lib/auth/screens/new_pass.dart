@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodia_app/routing/app_routes.dart';
 import 'package:foodia_app/styling/app_assets.dart';
-
 import 'package:foodia_app/styling/app_colors.dart';
-
+import 'package:foodia_app/styling/app_fonts.dart';
 import 'package:foodia_app/styling/app_styling.dart';
 import 'package:foodia_app/witgets/custom_text_field.dart';
 import 'package:foodia_app/witgets/primary_button.dart';
@@ -21,10 +19,51 @@ class _NewPassState extends State<NewPass> {
   bool ispassword = true;
   bool iscpassword = true;
 
+  void _showdilog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: AppColors.primarycolor,
+          title: Text(
+            "Success!",
+            style: TextStyle(
+              fontFamily: AppFonts.mainfontsname,
+              color: Colors.white,
+            ),
+          ),
+          content: Text(
+            "Your password has been updated successfully.",
+            style: TextStyle(
+              fontFamily: AppFonts.mainfontsname,
+              color: Colors.white,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                // GoRouter.of(
+                //   context,
+                // ).push(AppRoutes.loginScreen); // Navigate to login
+              },
+              child: Text(
+                "OK",
+                style: TextStyle(
+                  fontFamily: AppFonts.mainfontsname,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ======================= click back =============
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: WigetBack(
@@ -45,7 +84,7 @@ class _NewPassState extends State<NewPass> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: 65),
-                      //==========================photo ============
+                      // Photo
                       SizedBox(
                         width: 190,
                         height: 190,
@@ -55,13 +94,13 @@ class _NewPassState extends State<NewPass> {
                         ),
                       ),
                       SizedBox(height: 15),
-                      //================= Text =================================
+                      // Text
                       Text(
                         "Create New Password",
                         style: AppStyling.primarytextstyle,
                       ),
                       SizedBox(height: 15),
-                      //======================== PassWord ======================
+                      // Password Field
                       CustomTextField(
                         obscureText: ispassword,
                         sufixicon: IconButton(
@@ -79,7 +118,7 @@ class _NewPassState extends State<NewPass> {
                         hintText: "Password",
                       ),
                       SizedBox(height: 15),
-                      //================== confirm password ====================
+                      // Confirm Password Field
                       CustomTextField(
                         obscureText: iscpassword,
                         sufixicon: IconButton(
@@ -97,14 +136,9 @@ class _NewPassState extends State<NewPass> {
                         hintText: "Confirm Password",
                       ),
                       SizedBox(height: 20),
-                      //======================== Login Button ==================
+                      // OK Button
                       Primarybutton(
-                        onpress: () {
-                          GoRouter.of(
-                            context,
-                          ).pushNamed(AppRoutes.sucesspassword);
-                        },
-
+                        onpress: _showdilog,
                         buttontext: "OK",
                         fontsize: 28,
                       ),

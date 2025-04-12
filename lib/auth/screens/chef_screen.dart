@@ -14,7 +14,6 @@ class Chefscreen extends StatefulWidget {
 }
 
 class _ChefscreenState extends State<Chefscreen> {
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
   // @override

@@ -16,6 +16,7 @@ class Firstpage extends StatefulWidget {
 
 class _FirstpageState extends State<Firstpage> {
   final formKey = GlobalKey<FormState>();
+  // ignore: prefer_typing_uninitialized_variables
   var chosenValue;
   List<String> gameList = ["Handball", "Volleyball", "Football", "Badminton"];
 
