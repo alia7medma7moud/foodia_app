@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodia_app/styling/app_assets.dart';
 import 'package:foodia_app/styling/app_colors.dart';
 import 'package:foodia_app/styling/app_styling.dart';
-import 'package:foodia_app/witgets/custom_text_field.dart';
 import 'package:foodia_app/witgets/primary_button.dart';
 import 'package:foodia_app/witgets/wiget_back.dart';
 import 'package:go_router/go_router.dart';
@@ -18,12 +17,12 @@ class _ChefscreenState extends State<Chefscreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _descriptionController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _nameController.dispose();
+  //   _descriptionController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class _ChefscreenState extends State<Chefscreen> {
                   ),
 
                   // Title
-                  Text("انشاء حساب", style: AppStyling.primarytextstyle),
+                  Text("انشاء حساب طاهي", style: AppStyling.primarytextstyle),
                   const SizedBox(height: 3),
 
                   // Profile Picture

@@ -48,7 +48,7 @@ class _OnBoarding2State extends State<OnBoarding2> {
                       onPressed: () {
                         GoRouter.of(context).pushNamed(AppRoutes.firstpage);
                       },
-                      icon: Center(child: Icon(Icons.chevron_right, size: 35)),
+                      icon: Icon(Icons.chevron_right, size: 35),
                       color: Colors.white,
                     ),
                   ),
