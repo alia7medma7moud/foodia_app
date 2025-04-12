@@ -46,7 +46,7 @@ class _OnBoarding2State extends State<OnBoarding2> {
                     ),
                     child: IconButton(
                       onPressed: () {
-                        GoRouter.of(context).pushNamed(AppRoutes.firstpage);
+                        GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
                       },
                       icon: Icon(Icons.chevron_right, size: 35),
                       color: Colors.white,

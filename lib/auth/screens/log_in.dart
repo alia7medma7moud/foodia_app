@@ -28,7 +28,6 @@ class _LogInState extends State<LogIn> {
   late TextEditingController phonecontroller;
   late TextEditingController password;
 
-
   @override
   void initState() {
     super.initState();
@@ -66,7 +65,7 @@ class _LogInState extends State<LogIn> {
                       child: Image.asset(AppAssets.logo, fit: BoxFit.contain),
                     ),
                     //=================Text=====================================
-                    Text("Login", style: AppStyling.primarytextstyle),
+                    Text("تسجيل الدخول", style: AppStyling.primarytextstyle),
                     SizedBox(height: 20),
                     //========================phone===============
                     CustomTextField(
@@ -79,9 +78,9 @@ class _LogInState extends State<LogIn> {
                       },
                       controller: phonecontroller,
                       //==================================
-                      hintText: "Email",
+                      hintText: "رقم الهاتف",
                       obscureText: false,
-                      sufixicon: Icon(Icons.email),
+                      sufixicon: Icon(Icons.phone),
                       // controller: _phoneController,
                     ),
                     //========================Password===============
@@ -89,9 +88,11 @@ class _LogInState extends State<LogIn> {
                       //==============controller=============
                       controller: password,
                       validator: (value) {
-                        if (value!.isEmpty) return "Enter Your Password";
+                        if (value!.isEmpty) return "ادخل كلمة السر ";
 
-                        if (value.length < 8) return "password must at lest 8 character";
+                        if (value.length < 8) {
+                          return "برجاء ادخال اكتر من 8 حروف";
+                        }
                         return null;
                       },
                       //===========================
@@ -108,8 +109,7 @@ class _LogInState extends State<LogIn> {
                               : Icons.visibility_off_outlined,
                         ),
                       ),
-                      hintText: "Password",
-                      
+                      hintText: "كلمة السر",
                     ),
                     //=====================forget password ==============
                     Row(
@@ -118,16 +118,11 @@ class _LogInState extends State<LogIn> {
                         Row(
                           children: [
                             Checkbox(
-                              activeColor:
-                                  AppColors
-                                      .primarycolor, 
-                              value:
-                                  ischeckbox, 
+                              activeColor: AppColors.primarycolor,
+                              value: ischeckbox,
                               onChanged: (value) {
                                 setState(() {
-                                  ischeckbox =
-                                      value ??
-                                      false; 
+                                  ischeckbox = value ?? false;
                                 });
                               },
                             ),
@@ -135,7 +130,6 @@ class _LogInState extends State<LogIn> {
                             Text(
                               "Remember me",
                               style: TextStyle(
-                                
                                 fontSize: 17,
                                 color: Colors.deepOrange,
                               ),
@@ -152,7 +146,6 @@ class _LogInState extends State<LogIn> {
                           child: const Text(
                             "Forgot Password?",
                             style: TextStyle(
-                              
                               fontSize: 17,
                               color: Colors.deepOrange,
                             ),
@@ -160,7 +153,7 @@ class _LogInState extends State<LogIn> {
                         ),
                       ],
                     ),
-                   
+
                     //======================== Login Button=================
                     Primarybutton(
                       onpress: () {
@@ -169,7 +162,7 @@ class _LogInState extends State<LogIn> {
                           print(password.text);
                         }
                       },
-                     
+
                       buttontext: "Login",
                       fontsize: 23,
                     ),
@@ -182,7 +175,6 @@ class _LogInState extends State<LogIn> {
                       text: TextSpan(
                         text: "Don't have an Account?   ",
                         style: TextStyle(
-                         
                           fontSize: 17,
                           color: Colors.deepOrange,
                         ),
@@ -190,7 +182,6 @@ class _LogInState extends State<LogIn> {
                           TextSpan(
                             text: "Register Now",
                             style: TextStyle(
-                              
                               fontSize: 19,
                               color: Colors.deepOrange,
                             ),

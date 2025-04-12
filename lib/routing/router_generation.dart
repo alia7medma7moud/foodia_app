@@ -1,4 +1,4 @@
-import 'package:foodia_app/auth/screens/chef_screen.dart';
+
 import 'package:foodia_app/auth/screens/forget_password.dart';
 import 'package:foodia_app/auth/screens/log_in.dart';
 import 'package:foodia_app/auth/screens/new_pass.dart';
@@ -6,7 +6,6 @@ import 'package:foodia_app/auth/screens/register_screen.dart';
 import 'package:foodia_app/auth/screens/verify_otp_page.dart';
 import 'package:foodia_app/onbording/on_boarding1.dart';
 import 'package:foodia_app/onbording/on_boarding2.dart';
-import 'package:foodia_app/pages/first_page.dart';
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -59,20 +58,8 @@ class RouterGeneration {
        builder: (context, State) => OnBoarding2(),
         
         ) ,
-      GoRoute(
-        path: AppRoutes.firstpage,
-        name: AppRoutes.firstpage ,
-       // ignore: non_constant_identifier_names
-       builder: (context, State) => Firstpage(),
-        
-        ),
-              GoRoute(
-        path: AppRoutes.chefscreen,
-        name: AppRoutes.chefscreen ,
-       // ignore: non_constant_identifier_names
-       builder: (context, State) => Chefscreen(),
-        
-        )
+    
+         
 
     ],
   );

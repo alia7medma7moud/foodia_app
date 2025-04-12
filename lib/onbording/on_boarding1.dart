@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:foodia_app/routing/app_routes.dart';
 import 'package:foodia_app/styling/app_assets.dart';
-
-import 'package:foodia_app/styling/app_styling.dart';
 import 'package:foodia_app/witgets/primary_button.dart';
+import 'package:foodia_app/witgets/skip_witget.dart';
 import 'package:go_router/go_router.dart';
 
 class OnBoarding1 extends StatelessWidget {
@@ -19,26 +17,19 @@ class OnBoarding1 extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  AppAssets.onbording,
-                ), // Use the image from assets
+                image: AssetImage(AppAssets.onbording),
                 fit: BoxFit.cover, // Cover the entire screen
               ),
             ),
           ),
 
-          //========================== Skip Button =====================
-          Positioned(
+          SkipWitget(
             top: 40,
             right: 20,
-            child: TextButton(
-              onPressed: () {
-                GoRouter.of(context).pushNamed(AppRoutes.firstpage);
-              },
-              child: Text("Skip", style: AppStyling.primarytextstyle),
-            ),
+            onpress: () {
+              GoRouter.of(context).pushNamed(AppRoutes.onbordingscreen2);
+            },
           ),
-
 
           // Next Button (Bottom)
           Positioned(
@@ -49,7 +40,7 @@ class OnBoarding1 extends StatelessWidget {
               onpress: () {
                 GoRouter.of(context).pushNamed(AppRoutes.onbordingscreen2);
               },
-              buttontext: "Start Now",
+              buttontext: "ابدا الان",
               fontsize: 28,
               fontWeight: FontWeight.bold,
             ),
