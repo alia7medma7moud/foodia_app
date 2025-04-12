@@ -39,22 +39,6 @@ class OnBoarding1 extends StatelessWidget {
             ),
           ),
 
-          // ================ Title ===============
-          // Center(
-          //   child: Positioned(
-          //     bottom: 100,
-          //     left: 20,
-          //     right: 20,
-          //     child: Text(
-          //       "Hello ",
-          //       style: TextStyle(
-          //         color: Colors.white,
-          //         fontSize: 70,
-          //         fontFamily: AppFonts.mainfontsname,
-          //       ),
-          //     ),
-          //   ),
-          // ),
 
           // Next Button (Bottom)
           Positioned(
