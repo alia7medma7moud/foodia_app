@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodia_app/styling/app_colors.dart';
+import 'package:foodia_app/styling/app_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? hintText;
-  final Widget? sufixicon;
+  final Widget? prefixIcon;
   final double? width;
-  final double? hight;
-  final IconData? iconfeild;
+  final double? height;
+  final IconData? iconField;
   final bool? obscureText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -15,10 +16,10 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.hintText,
-    this.sufixicon,
+    this.prefixIcon,
     this.width,
-    this.hight,
-    this.iconfeild,
+    this.height,
+    this.iconField,
     this.controller,
     this.validator,
     this.obscureText,
@@ -27,48 +28,58 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? 362.w,
-      height: hight ?? 101.h,
+      width: width ?? 327.w,
+      height: height ?? 94.h,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.only(bottom: 10.h),
         child: TextFormField(
+          style: TextStyle(
+            fontFamily: AppFonts.mainfontsname,
+            fontSize: 20.sp,
+            color: Colors.blue,
+          ),
           controller: controller,
           validator: validator,
           obscureText: obscureText ?? false,
-          textAlign: TextAlign.right, // RTL alignment
-          textDirection: TextDirection.rtl, // Right-to-left direction
+          textDirection: TextDirection.rtl,
+          textAlign: TextAlign.right,
           decoration: InputDecoration(
+            isDense: true, // This helps control the vertical density
+            filled: true,
+            fillColor: Colors.white,
+            prefixIcon: prefixIcon,
             hintText: hintText,
             hintStyle: TextStyle(
               color: Colors.black38,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 20.sp,
+              fontFamily: AppFonts.mainfontsname,
             ),
-            hintTextDirection: TextDirection.rtl, // RTL for hint text
-            // Border styling
+            hintTextDirection: TextDirection.rtl,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20.r),
+              borderSide: BorderSide(color: AppColors.primarycolor, width: 2.0),
+            ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: AppColors.primarycolor, width: 3.0),
+              borderRadius: BorderRadius.circular(20.r),
+              borderSide: BorderSide(color: AppColors.primarycolor, width: 4.0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: AppColors.primarycolor, width: 3.0),
+              borderRadius: BorderRadius.circular(20.r),
+              borderSide: BorderSide(color: AppColors.primarycolor, width: 4.0),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.red, width: 3.0),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.red, width: 3.0),
+              borderRadius: BorderRadius.circular(20.r),
+              borderSide: BorderSide(color: AppColors.primarycolor, width: 4.0),
             ),
 
-            fillColor: Colors.white, // White background
-            filled: true,
-            suffixIcon: sufixicon,
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 20.w,
-              vertical: 25.h,
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20.r),
+              borderSide: BorderSide(color: AppColors.primarycolor, width: 4.0),
+            ),
+            errorStyle: TextStyle(
+              fontFamily: AppFonts.mainfontsname,
+              fontSize: 14.sp,
+              color: Colors.red,
             ),
           ),
         ),

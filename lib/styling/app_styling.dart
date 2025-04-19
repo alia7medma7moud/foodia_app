@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodia_app/styling/app_colors.dart';
 import 'package:foodia_app/styling/app_fonts.dart';
@@ -8,7 +8,7 @@ class AppStyling {
     fontFamily: AppFonts.mainfontsname,
     fontWeight: FontWeight.bold,
     fontSize: 32.sp,
-    color: AppColors.primarycolor,
+    color: Colors.black,
   );
 
   static TextStyle secoundrytextstyle = TextStyle(
@@ -17,5 +17,4 @@ class AppStyling {
     fontSize: 15,
     color: AppColors.secoundrycolor,
   );
-
 }

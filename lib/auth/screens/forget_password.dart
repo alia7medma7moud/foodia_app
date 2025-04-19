@@ -15,15 +15,6 @@ class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ======================= click back ===========================
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: WigetBack(
-          onpress: () {
-            GoRouter.of(context).pop();
-          },
-        ),
-      ),
       backgroundColor: AppColors.backgroundcolor,
       body: Center(
         child: SafeArea(
@@ -33,8 +24,20 @@ class ForgetPassword extends StatelessWidget {
               child: Form(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(height: 30),
+                  children: [
+                    // ==========================witget back =================
+                    Padding(
+                      padding: const EdgeInsets.only(left: 31),
+                      child: Row(
+                        children: [
+                          WigetBack(
+                            onPressed: () {
+                              GoRouter.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                     //=================Text=====================================
                     Text(
                       "إعادة تعيين كلمة السر",
@@ -70,7 +73,7 @@ class ForgetPassword extends StatelessWidget {
                         return null;
                       },
                       hintText: "رقم الهاتف",
-                      sufixicon: Icon(Icons.phone, color: Colors.blueGrey),
+                      prefixIcon: Icon(Icons.phone, color: Colors.blueGrey),
                     ),
                     SizedBox(height: 20),
                     //======================== Login Button =================

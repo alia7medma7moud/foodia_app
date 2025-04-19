@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodia_app/styling/app_colors.dart';
 
 class WigetBack extends StatelessWidget {
-  final void Function()? onpress;
-  const WigetBack({super.key, this.onpress});
+  final void Function()? onPressed;
+  const WigetBack({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Container(
-        height: 50.h,
-        width: 50.w,
-        decoration: BoxDecoration(
-          color: AppColors.primarycolor,
-          border: Border.all(color: AppColors.primarycolor),
-          borderRadius: BorderRadius.circular(20),
+    return Container(
+      height: 32,
+      width: 32,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(32),
+        color: AppColors.primarycolor,
+      ),
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero, // Remove default padding
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
         ),
-        child: Center(
-          child: IconButton(
-            onPressed: onpress,
-            icon: Icon(Icons.arrow_back),
+        child: const Center(
+          child: Icon(
+            Icons.arrow_back,
             color: Colors.white,
+            size: 16, // Consider specifying size
           ),
         ),
       ),

@@ -39,15 +39,6 @@ class _RegisterpageState extends State<Registerpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ======================= click back =============
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: WigetBack(
-          onpress: () {
-            GoRouter.of(context).pop();
-          },
-        ),
-      ),
       backgroundColor: AppColors.backgroundcolor,
       body: Center(
         child: SafeArea(
@@ -58,18 +49,29 @@ class _RegisterpageState extends State<Registerpage> {
                 key: formky,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
+                    //============================witget back ===========
+                    Padding(
+                      padding: const EdgeInsets.only(left: 31),
+                      child: Row(
+                        children: [
+                          WigetBack(
+                            onPressed: () {
+                              GoRouter.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                     // ==============Logo===============
                     SizedBox(
                       width: 186,
                       height: 150,
-                      child: Image.asset(
-                        AppAssets.otpimage,
-                        fit: BoxFit.contain,
-                      ),
+                      child: Image.asset(AppAssets.logo, fit: BoxFit.contain),
                     ),
                     //=================Text=======================
                     Text("Regiser Now", style: AppStyling.primarytextstyle),
+                    SizedBox(height: 12),
 
                     //========================username===============
                     CustomTextField(
@@ -77,56 +79,57 @@ class _RegisterpageState extends State<Registerpage> {
                       controller: namecontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter Your username";
+                          return "ادخب اسم المستخدم";
                         }
                         return null;
                       },
-                      hintText: "Username",
-                      sufixicon: Icon(Icons.person),
+                      hintText: "اسم المستخدم",
+                      prefixIcon: Icon(Icons.person, size: 30),
                     ),
+
                     //======================== phone ===================
                     CustomTextField(
                       //================== phone controller ======
                       controller: phonecontroller,
                       validator: (value) {
-                        if (value!.isEmpty) return "Enter Your Phone";
+                        if (value!.isEmpty) return "ادخل رقم الهاتف";
 
                         if (value.length > 11) {
-                          return "Please Enter Correct phone";
+                          return "ادخل رقم هاتف صحيح";
                         }
                         return null;
                       },
-                      hintText: "Phone",
+                      hintText: "رقم الهاتف",
                       obscureText: false,
-                      sufixicon: Icon(Icons.phone),
+                      prefixIcon: Icon(Icons.phone, size: 26),
                     ),
                     //========================Email====================
                     CustomTextField(
                       controller: emailcontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter Your email";
+                          return "ادخل البريد الالكتروني";
                         }
                         return null;
                       },
-                      hintText: "Email",
-                      iconfeild: Icons.email,
-                      sufixicon: Icon(Icons.email),
+                      hintText: "البريد الالكتروني",
+                      iconField: Icons.email,
+                      prefixIcon: Icon(Icons.email, size: 22),
                     ),
                     //========================Password===============
                     CustomTextField(
                       controller: passcontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter Your password";
+                          return "ادخل كلمة السر";
                         }
                         if (value.length < 8) {
-                          return "password must at lest 8 character";
+                          return "كلمة السر لا تقل عن 8 احرف";
                         }
                         return null;
                       },
                       obscureText: ispassword,
-                      sufixicon: IconButton(
+                      prefixIcon: IconButton(
                         onPressed: () {
                           setState(() {
                             ispassword = !ispassword;
@@ -136,24 +139,25 @@ class _RegisterpageState extends State<Registerpage> {
                           ispassword
                               ? Icons.remove_red_eye_outlined
                               : Icons.visibility_off_outlined,
+                          size: 22,
                         ),
                       ),
-                      hintText: "Password",
+                      hintText: "كلمة السر",
                     ),
                     //========================Confirm Password===============
                     CustomTextField(
                       controller: confirmpasscontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter Your confirm password";
+                          return "ادخل تاكيد كلمة السر";
                         }
                         if (value.length < 8) {
-                          return "password must at lest 8 character";
+                          return "كلمة السر لا تقل عن 8 احرف";
                         }
                         return null;
                       },
                       obscureText: iscpassword,
-                      sufixicon: IconButton(
+                      prefixIcon: IconButton(
                         onPressed: () {
                           setState(() {
                             iscpassword = !iscpassword;
@@ -163,9 +167,10 @@ class _RegisterpageState extends State<Registerpage> {
                           iscpassword
                               ? Icons.remove_red_eye_outlined
                               : Icons.visibility_off_outlined,
+                          size: 22,
                         ),
                       ),
-                      hintText: "Confirm Password",
+                      hintText: "تاكيد كلمة السر",
                     ),
                     //========================Sign UP Button=================
                     Primarybutton(
@@ -177,7 +182,7 @@ class _RegisterpageState extends State<Registerpage> {
                         GoRouter.of(context).pushNamed(AppRoutes.verifyotp);
                       },
 
-                      buttontext: "Register Now",
+                      buttontext: "تسجيل",
                       fontsize: 23,
                     ),
                   ],

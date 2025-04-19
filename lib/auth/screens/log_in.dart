@@ -38,15 +38,6 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ======================= click back ===========================
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: WigetBack(
-          onpress: () {
-            GoRouter.of(context).pop();
-          },
-        ),
-      ),
       backgroundColor: AppColors.backgroundcolor,
       body: Center(
         child: SafeArea(
@@ -57,7 +48,21 @@ class _LogInState extends State<LogIn> {
                 key: formkey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
+                    // ==========================witget back =================
+                    Padding(
+                      padding: const EdgeInsets.only(left: 31),
+                      child: Row(
+                        children: [
+                          WigetBack(
+                            onPressed: () {
+                              GoRouter.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20),
                     // ==============Logo=======================================
                     SizedBox(
                       width: 186,
@@ -72,15 +77,19 @@ class _LogInState extends State<LogIn> {
                       //=============== controller =============
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Enter Your Email";
+                          return "ادخل رقم الهاتف";
                         }
+                        if (value.length < 11 || value.length > 11) {
+                          return " برجاء ادخال رقم هاتف صحيح";
+                        }
+
                         return null;
                       },
                       controller: phonecontroller,
                       //==================================
                       hintText: "رقم الهاتف",
                       obscureText: false,
-                      sufixicon: Icon(Icons.phone),
+                      prefixIcon: Icon(Icons.phone, size: 22),
                       // controller: _phoneController,
                     ),
                     //========================Password===============
@@ -97,7 +106,7 @@ class _LogInState extends State<LogIn> {
                       },
                       //===========================
                       obscureText: ispassword,
-                      sufixicon: IconButton(
+                      prefixIcon: IconButton(
                         onPressed: () {
                           setState(() {
                             ispassword = !ispassword;
@@ -107,6 +116,7 @@ class _LogInState extends State<LogIn> {
                           ispassword
                               ? Icons.remove_red_eye_outlined
                               : Icons.visibility_off_outlined,
+                          size: 22,
                         ),
                       ),
                       hintText: "كلمة السر",
@@ -119,6 +129,8 @@ class _LogInState extends State<LogIn> {
                           children: [
                             Checkbox(
                               activeColor: AppColors.primarycolor,
+
+                              checkColor: Colors.white,
                               value: ischeckbox,
                               onChanged: (value) {
                                 setState(() {
@@ -128,15 +140,15 @@ class _LogInState extends State<LogIn> {
                             ),
 
                             Text(
-                              "Remember me",
+                              "ذكرني",
                               style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.deepOrange,
+                                fontSize: 19,
+                                color: Colors.black,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         TextButton(
                           onPressed: () {
                             GoRouter.of(
@@ -144,11 +156,8 @@ class _LogInState extends State<LogIn> {
                             ).pushNamed(AppRoutes.forgetpassword);
                           },
                           child: const Text(
-                            "Forgot Password?",
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.deepOrange,
-                            ),
+                            "هل نسيت كلمة السر ؟",
+                            style: TextStyle(fontSize: 19, color: Colors.black),
                           ),
                         ),
                       ],
@@ -158,32 +167,29 @@ class _LogInState extends State<LogIn> {
                     Primarybutton(
                       onpress: () {
                         if (formkey.currentState!.validate()) {
-                          print(phonecontroller.text);
-                          print(password.text);
+                          GoRouter.of(context).pushNamed(AppRoutes.homepage);
                         }
                       },
 
-                      buttontext: "Login",
+                      buttontext: "تسجيل دخول",
                       fontsize: 23,
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     //=============  oR =========================
                     OrWitget(),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     //================= text Don't have Account ===============
                     RichText(
                       text: TextSpan(
-                        text: "Don't have an Account?   ",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.deepOrange,
-                        ),
+                        text: "ليس لديك حساب ؟   ",
+                        style: TextStyle(fontSize: 19, color: Colors.black),
                         children: [
                           TextSpan(
-                            text: "Register Now",
+                            text: "تسجيل ",
                             style: TextStyle(
                               fontSize: 19,
-                              color: Colors.deepOrange,
+                              color: AppColors.primarycolor,
+                              fontWeight: FontWeight.bold,
                             ),
                             recognizer:
                                 TapGestureRecognizer()

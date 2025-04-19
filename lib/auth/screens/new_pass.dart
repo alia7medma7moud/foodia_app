@@ -24,39 +24,54 @@ class _NewPassState extends State<NewPass> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: AppColors.primarycolor,
-          title: Text(
-            "Success!",
-            style: TextStyle(
-              fontFamily: AppFonts.mainfontsname,
-              color: Colors.white,
-            ),
+          backgroundColor: Colors.white,
+          title: SizedBox(
+            width: 124,
+            height: 124,
+            child: Image.asset(AppAssets.image),
           ),
-          content: Text(
-            "Your password has been updated successfully.",
-            style: TextStyle(
-              fontFamily: AppFonts.mainfontsname,
-              color: Colors.white,
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-                // GoRouter.of(
-                //   context,
-                // ).push(AppRoutes.loginScreen); // Navigate to login
-              },
-              child: Text(
-                "OK",
-                style: TextStyle(
-                  fontFamily: AppFonts.mainfontsname,
-                  color: Colors.white,
+          // title: Text(
+          //   "ناجح",
+          //   style: TextStyle(
+          //     fontFamily: AppFonts.mainfontsname,
+          //     color: Colors.white,
+          //   ),
+          // ),
+          content: SizedBox(
+            height: 150,
+            child: Column(
+              children: [
+                Text(
+                  "تهانياً",
+                  style: TextStyle(
+                    fontFamily: AppFonts.mainfontsname,
+                    color: AppColors.primarycolor,
+
+                    fontSize: 40,
+                  ),
                 ),
-              ),
+                Text(
+                  "تم تعديل كلمة السر بنجاح",
+                  style: TextStyle(
+                    fontFamily: AppFonts.mainfontsname,
+                    color: AppColors.primarycolor,
+
+                    fontSize: 24,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Primarybutton(
+                  hight: 43,
+                  width: 165,
+                  onpress: () {
+                    Navigator.pop(context);
+                  },
+                  buttontext: "موافق",
+                ),
+              ],
             ),
-          ],
-        );
+          ),
+          );
       },
     );
   }
@@ -64,14 +79,6 @@ class _NewPassState extends State<NewPass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: WigetBack(
-          onpress: () {
-            GoRouter.of(context).pop();
-          },
-        ),
-      ),
       backgroundColor: AppColors.backgroundcolor,
       body: Center(
         child: SafeArea(
@@ -82,28 +89,31 @@ class _NewPassState extends State<NewPass> {
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: 65),
-                      // Photo
-                      SizedBox(
-                        width: 190,
-                        height: 190,
-                        child: Image.asset(
-                          AppAssets.newpass,
-                          fit: BoxFit.contain,
+                    children: [
+                      // ==========================witget back =================
+                      Padding(
+                        padding: const EdgeInsets.only(left: 31),
+                        child: Row(
+                          children: [
+                            WigetBack(
+                              onPressed: () {
+                                GoRouter.of(context).pop();
+                              },
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: 70),
                       // Text
                       Text(
-                        "Create New Password",
+                        "انشاء كلمة سر جديدة",
                         style: AppStyling.primarytextstyle,
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: 145),
                       // Password Field
                       CustomTextField(
                         obscureText: ispassword,
-                        sufixicon: IconButton(
+                        prefixIcon: IconButton(
                           onPressed: () {
                             setState(() {
                               ispassword = !ispassword;
@@ -115,13 +125,13 @@ class _NewPassState extends State<NewPass> {
                                 : Icons.visibility_off_outlined,
                           ),
                         ),
-                        hintText: "Password",
+                        hintText: "كلمة السر",
                       ),
                       SizedBox(height: 15),
                       // Confirm Password Field
                       CustomTextField(
                         obscureText: iscpassword,
-                        sufixicon: IconButton(
+                        prefixIcon: IconButton(
                           onPressed: () {
                             setState(() {
                               iscpassword = !iscpassword;
@@ -133,14 +143,14 @@ class _NewPassState extends State<NewPass> {
                                 : Icons.visibility_off_outlined,
                           ),
                         ),
-                        hintText: "Confirm Password",
+                        hintText: "تاكيد كلمة السر",
                       ),
                       SizedBox(height: 20),
                       // OK Button
                       Primarybutton(
                         onpress: _showdilog,
-                        buttontext: "OK",
-                        fontsize: 28,
+                        buttontext: "اعادة تعيين كلمة السر",
+                        fontsize: 17,
                       ),
                       SizedBox(height: 20),
                     ],

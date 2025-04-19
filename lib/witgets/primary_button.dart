@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodia_app/styling/app_colors.dart';
 import 'package:foodia_app/styling/app_fonts.dart';
 
-class Primarybutton extends StatelessWidget {
+class Primarybutton extends StatefulWidget {
   final String? buttontext;
   final Color? buttoncolor;
   final double? width;
@@ -11,10 +11,10 @@ class Primarybutton extends StatelessWidget {
   final double? borderrediuse;
   final Color? textcolor;
   final double? fontsize;
-  final void Function()? onpress;
+    Function()? onpress;
   final FontWeight? fontWeight;
 
-  const Primarybutton({
+    Primarybutton({
     super.key,
     this.buttontext,
     this.buttoncolor,
@@ -24,27 +24,32 @@ class Primarybutton extends StatelessWidget {
     this.textcolor,
     this.onpress,
     this.fontsize,
-    this.fontWeight
+    this.fontWeight,
   });
 
   @override
+  State<Primarybutton> createState() => _PrimarybuttonState();
+}
+
+class _PrimarybuttonState extends State<Primarybutton> {
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onpress,
+      onPressed: widget.onpress,
       style: ElevatedButton.styleFrom(
-        backgroundColor: buttoncolor ?? AppColors.primarycolor,
+        backgroundColor: widget.buttoncolor ?? AppColors.primarycolor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderrediuse ?? 50.r),
+          borderRadius: BorderRadius.circular(widget.borderrediuse ?? 50.r),
         ),
-        fixedSize: Size(width ?? 240.w, hight ?? 48.h),
+        fixedSize: Size(widget.width ?? 240.w, widget.hight ?? 48.h),
       ),
       child: Text(
-        buttontext ?? "",
+        widget.buttontext ?? "",
         style: TextStyle(
-          color: textcolor ?? Colors.white,
+          color: widget.textcolor ?? Colors.white,
           fontFamily: AppFonts.mainfontsname,
-          fontWeight: fontWeight ,
-          fontSize: fontsize ?? 16.sp,
+          fontWeight: widget.fontWeight,
+          fontSize: widget.fontsize ?? 16.sp,
         ),
       ),
     );
